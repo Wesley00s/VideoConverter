@@ -16,6 +16,13 @@ A robust, modern video converter built specifically for Linux content creators. 
 * **Native Integration:** System tray icon and desktop menu integration (Linux).
 * **Performance:** Uses `libx265` with optimized presets (CRF 18 / Slow) for maximum quality retention.
 
+## 📸 Screenshots
+
+![ProRes Converter Interface](screenshots/main-ui.png)
+![ProRes Converter Logs](screenshots/logs.png)
+
+*The modern dark mode interface featuring drag-and-drop queue and real-time FFmpeg log monitoring.*
+
 ## 🛠️ Tech Stack
 
 * **Language:** Java 21 (OpenJDK)
