@@ -2,7 +2,7 @@ APP_NAME = ProResConverter
 INSTALL_DIR = $(HOME)/Apps/$(APP_NAME)
 DESKTOP_DIR = $(HOME)/.local/share/applications
 DESKTOP_FILE = $(DESKTOP_DIR)/prores-converter.desktop
-JAR_SOURCE = target/VideoConverter-1.0-SNAPSHOT.jar
+JAR_SOURCE = target/VideoConverter-1.0.0.jar
 ICON_SOURCE = src/main/resources/images/app_logo.png
 JAVA_EXEC := $(shell which java)
 
