@@ -12,9 +12,9 @@ import java.nio.file.StandardCopyOption;
 
 public class FFmpegService {
 
-    private static final String CODEC = "libx265";
-    private static final String CRF = "18";
-    private static final String PRESET = "slow";
+    private static final String CODEC = "hevc_nvenc";
+    private static final String CRF = "16";
+    private static final String PRESET = "medium";
 
     public boolean convertVideo(File inputFile) throws IOException, InterruptedException {
         String outputName = inputFile.getName().substring(0, inputFile.getName().lastIndexOf('.')) + "_HEVC.mp4";
@@ -42,7 +42,13 @@ public class FFmpegService {
                 "-c:v", CODEC,
                 "-crf", CRF,
                 "-preset", PRESET,
+                "-g", "120",
+                "-keyint_min", "60",
+                "-x265-params", "no-open-gop=1",
                 "-pix_fmt", "yuv420p10le",
+                "-color_primaries", "1",
+                "-color_trc", "1",
+                "-colorspace", "1",
                 "-c:a", "aac",
                 "-b:a", "320k",
                 "-tag:v", "hvc1",
@@ -51,7 +57,6 @@ public class FFmpegService {
         builder.redirectErrorStream(true);
         return builder.start();
     }
-
     private void logProcessOutput(Process process) throws IOException {
         try (BufferedReader reader = new BufferedReader(new InputStreamReader(process.getInputStream()))) {
             String line;
